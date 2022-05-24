@@ -1,12 +1,36 @@
 body{
-    background-color: rgb(37, 36, 36);
+    background: linear-gradient(346deg, rgba(2,0,36,1) 0%, rgba(25,91,123,1) 35%, rgba(27,74,123,1) 46%, rgba(33,65,123,1) 100%);
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
+/* div primera parte */
+#jugar{
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#comenzar{
+    background-color: rgb(110, 110, 246);
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+#comenzar:hover{
+    cursor: pointer;
+    background-color: #000;
+}
+/* div para jugar */
 #tablero{
     margin: 10px;
+    display: none;
+    
     
 }
 #encabezado{
@@ -23,7 +47,7 @@ body{
     
 }
 .opcion:hover{
-    background-color: rgb(171, 205, 36);
+    background-color: rgb(40, 101, 224);
     cursor: pointer;
 
 }
@@ -45,8 +69,13 @@ body{
     width: 10%;
     color: #fff;
     min-width: 50px;
-
 }
 .ayuda:hover{
     cursor: pointer;
+    background-color: rgb(29, 121, 227);
+}
+#numpregunta{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
 }

@@ -1,8 +1,11 @@
 
 //variables
 const ayuda= document.querySelector("#ayuda");
+const QuieresJugar = document.getElementById("jugar");
+console.log(QuieresJugar);
 let indice_preguntas = 0;
 let puntaje = 0;
+let preguntaActual =1;
 let dividiPregunta = "";
 cargarPregunta(indice_preguntas);
 
@@ -23,8 +26,6 @@ function cargarPregunta(num){
         dividiPregunta = base.pregunta;
         document.querySelector("#encabezado h1").innerHTML = dividiPregunta;
     }
-
-    
     document.getElementById("opcion1").innerHTML = opciones[0];
     document.getElementById("opcion2").innerHTML = opciones[1];
     document.getElementById("opcion3").innerHTML = opciones[2];
@@ -35,6 +36,8 @@ function cargarPregunta(num){
 cargarEventListener();
 function cargarEventListener(){
     ayuda.addEventListener('click', pista);
+    QuieresJugar.addEventListener('click',jugar);
+
    
 }
 
@@ -48,6 +51,7 @@ async function SeleccionarOpcion(num){
             confirmButtonText: 'Siguiente',
         })
         puntaje++;
+        preguntaActual++;
     }else {
         /*RESPUESTA INCORRECTA */
         await Swal.fire({
@@ -56,7 +60,10 @@ async function SeleccionarOpcion(num){
             icon:"error",
             confirmButtonText: 'Siguiente',
         })
+        preguntaActual++;
     }
+    /* se añade aquí, porque cada vez que pasa pregunta se ira actualizando el contador de la pregunta */
+    numeropregunta();
     /*INDICE DE PREGUNTA IRÁ AUMENTANDO */
     indice_preguntas++;
     /*SI EL INDICE ES MAYOR O IGUAL A LA CANTIDAD DE PREGUNTAS */
@@ -88,4 +95,20 @@ function pista(){
         imageHeight: 200,
         imageAlt: 'Custom image',
       })
+}
+//que pregunta va?
+function numeropregunta(){
+    console.log(base.pregunta[0]);
+    document.getElementById('numpregunta').innerHTML = preguntaActual+ '/'+ basepregunta.length;
+}
+
+
+//comenzar juego
+function jugar(QuieresJugar){
+    //pregunta si el div de jugar contiene la CLASE de comenzar
+    if(QuieresJugar.target.classList.contains('comenzar')){
+        document.getElementById('jugar').style.display = 'none';
+        document.getElementById('tablero').style.display = 'block';
+        numeropregunta();
+    }
 }
