@@ -17,9 +17,9 @@ function cargarPregunta(num){
         opciones.sort(()=> Math.random()-0.5);
     }
     //si la pregunta incluye un . 
-    if(base.pregunta.includes('.')){
+    if(base.pregunta.includes('.',)){
         dividiPregunta = base.pregunta.split(['.']);
-        document.querySelector("#encabezado h1").innerHTML = dividiPregunta[0]+ ', <br>'+ dividiPregunta[1];
+        document.querySelector("#encabezado h1").innerHTML = dividiPregunta[0]+ '<br>'+ '<div style="text-align:center">'+ dividiPregunta[1] +'</div>';
 
     }else{
         dividiPregunta = base.pregunta;
@@ -79,10 +79,10 @@ async function SeleccionarOpcion(num){
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Volver a iniciar',
-            cancelButtonText: 'No'
+            cancelButtonText: 'Inicio'
           }).then((result) => {
             if (!result.isConfirmed) {
-               window.open("https://juanpigarcia.github.io/");
+               location.reload();
             }else{
                 jugar2();
             }
