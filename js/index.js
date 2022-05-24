@@ -55,6 +55,9 @@ async function SeleccionarOpcion(num){
     /* RESPUESTA CORRECTA */
     if(validar){
         await Swal.fire({
+            customClass: {
+                confirmButton: 'swalBtnColor'
+              },
             text: "Respuesta Correcta.",
             icon:"success",
             confirmButtonText: 'Siguiente',
@@ -120,7 +123,7 @@ function pista(){
 }
 //que pregunta va?
 function numeropregunta(){
-    document.getElementById('numpregunta').innerHTML = preguntaActual+ '/'+ basepregunta.length;
+    document.getElementById('numpregunta').innerHTML = 'pregunta ' + preguntaActual+ ' de '+ basepregunta.length;
 }
 
 //comenzar juego
