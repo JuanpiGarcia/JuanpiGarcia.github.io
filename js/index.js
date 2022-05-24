@@ -16,6 +16,13 @@ function cargarPregunta(num){
     for(let i=0; i<4; i++){
         opciones.sort(()=> Math.random()-0.5);
     }
+    //si no hay ayuda
+    if(base.ayuda){
+        document.getElementById("ayuda").style.display = "";
+    }else{
+        document.getElementById("ayuda").style.display = "none";
+    }
+
     //si la pregunta incluye un . 
     if(base.pregunta.includes('.',)){
         dividiPregunta = base.pregunta.split(['.']);
