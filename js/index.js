@@ -2,7 +2,6 @@
 //variables
 const ayuda= document.querySelector("#ayuda");
 const QuieresJugar = document.getElementById("jugar");
-console.log(QuieresJugar);
 let indice_preguntas = 0;
 let puntaje = 0;
 let preguntaActual =1;
@@ -40,6 +39,9 @@ function cargarEventListener(){
 
    
 }
+function delante(){
+    window.open("https://juanpigarcia.github.io/");
+}
 
 async function SeleccionarOpcion(num){
     let validar = opciones[num] == base.correcta;
@@ -51,7 +53,7 @@ async function SeleccionarOpcion(num){
             confirmButtonText: 'Siguiente',
         })
         puntaje++;
-        preguntaActual++;
+        
     }else {
         /*RESPUESTA INCORRECTA */
         await Swal.fire({
@@ -60,29 +62,42 @@ async function SeleccionarOpcion(num){
             icon:"error",
             confirmButtonText: 'Siguiente',
         })
-        preguntaActual++;
+        
     }
+    preguntaActual++;
     /* se añade aquí, porque cada vez que pasa pregunta se ira actualizando el contador de la pregunta */
     numeropregunta();
     /*INDICE DE PREGUNTA IRÁ AUMENTANDO */
     indice_preguntas++;
     /*SI EL INDICE ES MAYOR O IGUAL A LA CANTIDAD DE PREGUNTAS */
     if(indice_preguntas>= basepregunta.length){
-        indice_preguntas =0;
-        await Swal.fire({
-            title: 'El juego ha terminado.',
-            text:`Puntaje Obtenido "${puntaje}/${basepregunta.length}".`,
-            showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
+        
+        Swal.fire({
+            title: 'El juego ha terminado',
+            text: `Puntaje Obtenido "${puntaje}/${basepregunta.length}".`,
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Volver a iniciar',
+            cancelButtonText: 'No'
+          }).then((result) => {
+            if (!result.isConfirmed) {
+               window.open("https://juanpigarcia.github.io/");
+            }else{
+                jugar2();
             }
-          });
+          })
+          indice_preguntas =0;
+          preguntaActual =1;
           puntaje=0;
+          
     }
     cargarPregunta(indice_preguntas);
-    
+}
+function jugar2(){
+    document.getElementById('jugar').style.display = 'none';
+    document.getElementById('tablero').style.display = 'block';
+    numeropregunta();
 }
 
 function pista(){
@@ -98,10 +113,8 @@ function pista(){
 }
 //que pregunta va?
 function numeropregunta(){
-    console.log(base.pregunta[0]);
     document.getElementById('numpregunta').innerHTML = preguntaActual+ '/'+ basepregunta.length;
 }
-
 
 //comenzar juego
 function jugar(QuieresJugar){

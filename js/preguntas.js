@@ -3,7 +3,7 @@ let basepregunta =[
     ayuda:"pinto la ultima cena",
     correcta: "Consultar con su mecánico lo antes posible",
     incorrecta:["Cambiar los neumáticos de un lado hacia el otro y viceversa",
-                "Bombear el pedal al frenar.",
+                "Bombear el pedal al frenar",
                 "Usar su freno de mano"],
     },
     {pregunta: "Su vehículo se desvía hacia un lado cuando usted frena- ¿Cuál es la falla más probable?",
