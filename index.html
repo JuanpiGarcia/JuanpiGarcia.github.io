@@ -5,14 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" media="(prefers-color-scheme: light)" href="css/light.css">
+    <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="css/dark.css">
+    
     <script src="js/preguntas.js"></script>
     <script defer src="js/index.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="@sweetalert2/theme-dark/dark.css">
+    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
     <title>Preguntados</title>
 </head>
 <body>
     <div>
+       <div><dark-mode-toggle
+        id="dark-mode-toggle-1"
+        class="mododark"
+        appearance="switch"
+        dark="Dark"
+        light="Light"
+    ></dark-mode-toggle></div>
         <div id="jugar" class="animate__animated animate__backInDown">
             <h1  class="animate__animated animate__backInLeft">¿Preparado para jugar?</h1>
 
@@ -25,7 +38,7 @@
                 
                 <h1 id="pregu">pregunta</h1>
             </div>
-            <div class="opcion" id="opcion1" onclick="SeleccionarOpcion(0)"> preguntas</div>
+            <div class="animate__animated animate__rubberBand opcion" id="opcion1" onclick="SeleccionarOpcion(0)"> preguntas</div>
             <div class="opcion" id="opcion2" onclick="SeleccionarOpcion(1)"> preguntas</div>
             <div class="opcion" id="opcion3" onclick="SeleccionarOpcion(2)"> preguntas</div>
             <div class="opcion" id="opcion4" onclick="SeleccionarOpcion(3)"> preguntas</div>

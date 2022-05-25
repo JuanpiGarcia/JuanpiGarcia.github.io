@@ -1,0 +1,21 @@
+:root{
+    --background-color: #f5f5f5;
+}
+body{
+    color:black;
+}
+#jugar{
+    border-radius: 30px;
+ background: #e0e0e0;
+ box-shadow: 15px 15px 30px #bebebe,
+             -15px -15px 30px #ffffff;
+}
+.opcion{
+    border-radius: 30px;
+    background: #e0e0e0;
+    color: rgb(0, 0, 0);
+}
+#encabezado{
+    background: #e0e0e0;
+    color: rgb(0, 0, 0);
+}
