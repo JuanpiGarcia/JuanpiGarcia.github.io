@@ -2,6 +2,7 @@
 //variables
 const ayuda= document.querySelector("#ayuda");
 const QuieresJugar = document.getElementById("jugar");
+const modo = document.getElementById('dark-mode-toggle-1');
 let indice_preguntas = 0;
 let puntaje = 0;
 let preguntaActual =1;
@@ -43,28 +44,38 @@ cargarEventListener();
 function cargarEventListener(){
     ayuda.addEventListener('click', pista);
     QuieresJugar.addEventListener('click',jugar);
+    modo.addEventListener('click',cambiar);
 
    
 }
 function delante(){
     window.open("https://juanpigarcia.github.io/");
 }
+function cambiar(){
+    console.log(modo);
+}
 
 async function SeleccionarOpcion(num){
     let validar = opciones[num] == base.correcta;
     /* RESPUESTA CORRECTA */
+    
+
     if(validar){
         await Swal.fire({
+            background: '#393231',
             text: "Respuesta Correcta.",
+            color: "#fff",
             icon:"success",
             confirmButtonText: 'Siguiente',
-            
         })
         puntaje++;
         
     }else {
         /*RESPUESTA INCORRECTA */
         await Swal.fire({
+            background: '#393231',
+            text: "Respuesta Correcta.",
+            color: "#fff",
             title: "Respuesta Incorrecta",
             text:`La respuesta correcta es "${base.correcta}"`,
             icon:"error",
@@ -81,6 +92,9 @@ async function SeleccionarOpcion(num){
     if(indice_preguntas>= basepregunta.length){
         
         Swal.fire({
+            background: '#393231',
+            text: "Respuesta Correcta.",
+            color: "#fff",
             title: 'El juego ha terminado',
             text: `Puntaje Obtenido "${puntaje}/${basepregunta.length}".`,
             showCancelButton: true,

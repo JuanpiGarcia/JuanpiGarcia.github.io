@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" media="(prefers-color-scheme: light)" href="css/light.css">
-    <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="css/dark.css">
     
     <script src="js/preguntas.js"></script>
     <script defer src="js/index.js"></script>
@@ -19,29 +17,23 @@
 </head>
 <body>
     <div>
-       <div><dark-mode-toggle
-        id="dark-mode-toggle-1"
-        class="mododark"
-        appearance="switch"
-        dark="Dark"
-        light="Light"
-    ></dark-mode-toggle></div>
+
         <div id="jugar" class="animate__animated animate__backInDown">
             <h1  class="animate__animated animate__backInLeft">¿Preparado para jugar?</h1>
 
             <div id="comenzar" class="animate__animated animate__backInRight comenzar">Adelante</div>
             <!-- <button id="comenzar" class="comenzar">¡Adelante!</button> -->
         </div>
-        <div id="tablero">
+        <div id="tablero" class="tablero">
             <div id="encabezado">
                 <p id="ayuda" class="ayuda">Ayuda</p>
                 
                 <h1 id="pregu">pregunta</h1>
             </div>
             <div class="animate__animated animate__rubberBand opcion" id="opcion1" onclick="SeleccionarOpcion(0)"> preguntas</div>
-            <div class="opcion" id="opcion2" onclick="SeleccionarOpcion(1)"> preguntas</div>
-            <div class="opcion" id="opcion3" onclick="SeleccionarOpcion(2)"> preguntas</div>
-            <div class="opcion" id="opcion4" onclick="SeleccionarOpcion(3)"> preguntas</div>
+            <div class="animate__animated animate__rubberBand opcion" id="opcion2" onclick="SeleccionarOpcion(1)"> preguntas</div>
+            <div class="animate__animated animate__rubberBand opcion" id="opcion3" onclick="SeleccionarOpcion(2)"> preguntas</div>
+            <div class="animate__animated animate__rubberBand opcion" id="opcion4" onclick="SeleccionarOpcion(3)"> preguntas</div>
             <div id="numpregunta" class="numpregunta">Pregunta 1/10</div>
         </div>
         

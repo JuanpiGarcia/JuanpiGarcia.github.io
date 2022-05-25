@@ -1,15 +1,14 @@
-:root{
-    color-scheme: light dark;
-}
+
 body{
-    background-color: var(--background-color);
+    background: #1d1c1c;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
-#mododark{
-    margin: 300px;
+.mododark{
+    margin-left: 40px;
 }
 /* div primera parte */
 #jugar{
@@ -17,6 +16,9 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
+    border-radius: 30px;
+    background: #e0e0e0;
+    color:#000;
 }
 #comenzar{
     background-color: rgb(110, 110, 246);
@@ -35,7 +37,6 @@ body{
     
     
 }
-
 #encabezado{
     padding: 10px;
     border-radius: 10px;
@@ -44,8 +45,8 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
-    
+    background: #fff;
+    color: rgb(0, 0, 0);
 }
 .opcion:hover{
     background-color: rgb(40, 101, 224);
@@ -58,6 +59,9 @@ body{
     border-radius: 10px;
     text-align: center;
     padding: 10px;
+    border-radius: 30px;
+    background: #e0e0e0;
+    color: rgb(0, 0, 0);
 
 }
 .ayuda {
