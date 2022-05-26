@@ -1,20 +1,23 @@
 let basepregunta =[
-    {pregunta: "Su vehículo se desvía hacia un lado cuando usted frena. usted debería:",
-    ayuda:"pinto la ultima cena",
+    {id:1,
+        pregunta: "1",
+    /* para agregar ayuda --> ayuda: "aqui va la ayuda", */
     correcta: "Consultar con su mecánico lo antes posible",
     incorrecta:["Cambiar los neumáticos de un lado hacia el otro y viceversa",
                 "Bombear el pedal al frenar",
                 "Usar su freno de mano"],
     },
-    {pregunta: "Su vehículo se desvía hacia un lado cuando usted frena.¿Cuál es la falla más probable?",
-    ayuda:"always",
+    {id:2,
+        pregunta: "2",
+    /* para agregar ayuda --> ayuda: "aqui va la ayuda", */
     correcta: "Frenos mal ajustados",
     incorrecta:["Un bajo nivel del líquido de frenos",
                 "Su freno de mano está todavía puesto",
                 "Neumáticos con presión de aire inadecuada"],
     },
-    {pregunta: "Mientras conduce usted siente un fuerte olor a gasolina.¿Qué debería hacer usted?",
-    ayuda:"always",
+    {id:3,
+        pregunta: "Mientras conduce usted siente un fuerte olor a gasolina.¿Qué debería hacer usted?",
+    /* para agregar ayuda --> ayuda: "aqui va la ayuda", */
     correcta: "Detenerse e investigar el problema",
     incorrecta:["No preocuparse, ya que sólo son los gases de escape",
                 "Continuar a una velocidad reducida",
@@ -22,3 +25,7 @@ let basepregunta =[
     },
 
 ];
+
+for(let i=0; i<4; i++){
+   basepregunta.sort(()=> Math.random()-0.5);
+}

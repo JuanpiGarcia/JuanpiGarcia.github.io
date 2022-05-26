@@ -2,21 +2,29 @@
 //variables
 const ayuda= document.querySelector("#ayuda");
 const QuieresJugar = document.getElementById("jugar");
-const modo = document.getElementById('dark-mode-toggle-1');
 let indice_preguntas = 0;
 let puntaje = 0;
 let preguntaActual =1;
 let dividiPregunta = "";
-cargarPregunta(indice_preguntas);
+let popo = 0;
+npreguntas = document.getElementById('numeropreguntas').value;
+
+
+
 
 function cargarPregunta(num){
     base= basepregunta[num];
+    //añade a la variable opciones las incorrectas
     opciones = [...base.incorrecta];
+    //añade al ultimo la opcion correcta
     opciones.push(base.correcta);
-    
+
+    //las respuesta serán aleatorias
     for(let i=0; i<4; i++){
         opciones.sort(()=> Math.random()-0.5);
     }
+    //añade la pregunta al al inicio del array
+    opciones.unshift(base.pregunta);
     //si no hay ayuda
     if(base.ayuda){
         document.getElementById("ayuda").style.display = "";
@@ -31,12 +39,12 @@ function cargarPregunta(num){
 
     }else{
         dividiPregunta = base.pregunta;
-        document.querySelector("#encabezado h1").innerHTML = dividiPregunta;
+        document.querySelector("#encabezado h1").innerHTML = opciones[0];
     }
-    document.getElementById("opcion1").innerHTML = opciones[0];
-    document.getElementById("opcion2").innerHTML = opciones[1];
-    document.getElementById("opcion3").innerHTML = opciones[2];
-    document.getElementById("opcion4").innerHTML = opciones[3];
+    document.getElementById("opcion1").innerHTML = opciones[1];
+    document.getElementById("opcion2").innerHTML = opciones[2];
+    document.getElementById("opcion3").innerHTML = opciones[3];
+    document.getElementById("opcion4").innerHTML = opciones[4];
 
 
 }
@@ -44,15 +52,10 @@ cargarEventListener();
 function cargarEventListener(){
     ayuda.addEventListener('click', pista);
     QuieresJugar.addEventListener('click',jugar);
-    modo.addEventListener('click',cambiar);
-
    
 }
 function delante(){
     window.open("https://juanpigarcia.github.io/");
-}
-function cambiar(){
-    console.log(modo);
 }
 
 async function SeleccionarOpcion(num){
@@ -116,6 +119,7 @@ async function SeleccionarOpcion(num){
     }
     cargarPregunta(indice_preguntas);
 }
+
 function jugar2(){
     document.getElementById('jugar').style.display = 'none';
     document.getElementById('tablero').style.display = 'block';
@@ -142,6 +146,11 @@ function numeropregunta(){
 function jugar(QuieresJugar){
     //pregunta si el div de jugar contiene la CLASE de comenzar
     if(QuieresJugar.target.classList.contains('comenzar')){
+        //captura la cantidad de preguntas del input
+        npreguntas = document.getElementById('numeropreguntas').value;
+        cargarPregunta(indice_preguntas);
+
+        //oculta el div
         document.getElementById('jugar').style.display = 'none';
         document.getElementById('tablero').style.display = 'block';
         numeropregunta();

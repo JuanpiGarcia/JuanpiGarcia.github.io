@@ -9,7 +9,6 @@
     <script src="js/preguntas.js"></script>
     <script defer src="js/index.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="@sweetalert2/theme-dark/dark.css">
     <script src="sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
@@ -20,7 +19,12 @@
 
         <div id="jugar" class="animate__animated animate__backInDown">
             <h1  class="animate__animated animate__backInLeft">¿Preparado para jugar?</h1>
-
+            <div>
+                <label for="">numero de preguntas</label>
+                <input type="number" id="numeropreguntas" >
+                <br>
+                <br>
+            </div>
             <div id="comenzar" class="animate__animated animate__backInRight comenzar">Adelante</div>
             <!-- <button id="comenzar" class="comenzar">¡Adelante!</button> -->
         </div>
