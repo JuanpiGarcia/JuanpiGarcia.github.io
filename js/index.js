@@ -148,7 +148,8 @@ function cargar(numero){
         pepito.push(preguntas2[i]);
         
     }
-    console.log(pepito);
+    cargarPregunta(indice_preguntas);
+
 }
 
 
@@ -158,7 +159,13 @@ function abretodo(){
       //captura la cantidad de preguntas del input
       npreguntas = document.getElementById('numeropreguntas');
       if(npreguntas.value.length > 0){
-          console.log(npreguntas.value);
+          let numero = npreguntas.value;
+          cargar(numero);
+          //oculta el div
+            document.getElementById('jugar').style.display = 'none';
+            document.getElementById('tablero').style.display = 'block';
+            numeropregunta();
+
         }else{
             console.log("input vacio");
             document.querySelector('#error').classList.add('error');
