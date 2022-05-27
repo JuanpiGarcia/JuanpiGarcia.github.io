@@ -16,13 +16,12 @@ function cargarPregunta(num){
     opciones = [...base.incorrecta];
     //añade al ultimo la opcion correcta
     opciones.push(base.correcta);
-
     //las respuesta serán aleatorias
     for(let i=0; i<4; i++){
         opciones.sort(()=> Math.random()-0.5);
     }
     //añade la pregunta al al inicio del array
-    opciones.unshift(base.pregunta);
+    opciones.push(base.pregunta);
     //si no hay ayuda
     if(base.ayuda){
         document.getElementById("ayuda").style.display = "";
@@ -37,12 +36,12 @@ function cargarPregunta(num){
 
     }else{
         dividiPregunta = base.pregunta;
-        document.querySelector("#encabezado h1").innerHTML = opciones[0];
+        document.querySelector("#encabezado h1").innerHTML = opciones[4];
     }
-    document.getElementById("opcion1").innerHTML = opciones[1];
-    document.getElementById("opcion2").innerHTML = opciones[2];
-    document.getElementById("opcion3").innerHTML = opciones[3];
-    document.getElementById("opcion4").innerHTML = opciones[4];
+    document.getElementById("opcion1").innerHTML = opciones[0];
+    document.getElementById("opcion2").innerHTML = opciones[1];
+    document.getElementById("opcion3").innerHTML = opciones[2];
+    document.getElementById("opcion4").innerHTML = opciones[3];
 
 
 }
@@ -151,9 +150,6 @@ function cargar(numero){
     cargarPregunta(indice_preguntas);
 
 }
-
-
-
 //comenzar juego
 function abretodo(){
       //captura la cantidad de preguntas del input
