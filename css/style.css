@@ -20,13 +20,13 @@ body{
     background: #e0e0e0;
     color:#000;
 }
-#comenzar{
+#adelante{
     background-color: rgb(110, 110, 246);
     color: #fff;
     padding: 10px;
     border-radius: 10px;
 }
-#comenzar:hover{
+#adelante:hover{
     cursor: pointer;
     background-color: #000;
 }
@@ -36,6 +36,12 @@ body{
     display: none;
     
     
+}
+#error{
+    color: rgb(237, 13, 13);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #encabezado{
     padding: 10px;

@@ -36,6 +36,5 @@ for(let i=0; i<4; i++){
         pepito.push(preguntas2[i]);
         
     }
-    console.log(pepito);
 
 

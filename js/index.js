@@ -1,14 +1,13 @@
 //variables
 const ayuda= document.querySelector("#ayuda");
 const QuieresJugar = document.getElementById("jugar");
+const comenzarjuego = document.querySelector("#adelante");
 let indice_preguntas = 0;
 let puntaje = 0;
 let preguntaActual =1;
 let dividiPregunta = "";
 let popo = 0;
 npreguntas = document.getElementById('numeropreguntas').value;
-
-
 
 
 function cargarPregunta(num){
@@ -51,6 +50,7 @@ cargarEventListener();
 function cargarEventListener(){
     ayuda.addEventListener('click', pista);
     QuieresJugar.addEventListener('click',jugar);
+    comenzarjuego.addEventListener('click', abretodo);
    
 }
 function delante(){
@@ -154,16 +154,16 @@ function cargar(numero){
 
 
 //comenzar juego
-function jugar(QuieresJugar){
-    //pregunta si el div de jugar contiene la CLASE de comenzar
-    if(QuieresJugar.target.classList.contains('comenzar')){
-        //captura la cantidad de preguntas del input
-        npreguntas = document.getElementById('numeropreguntas').value;
-        cargarPregunta(indice_preguntas);
-        cargar(npreguntas);
-        //oculta el div
-        document.getElementById('jugar').style.display = 'none';
-        document.getElementById('tablero').style.display = 'block';
-        numeropregunta();
-    }
+function abretodo(){
+      //captura la cantidad de preguntas del input
+      npreguntas = document.getElementById('numeropreguntas');
+      if(npreguntas.value.length > 0){
+          console.log(npreguntas.value);
+        }else{
+            console.log("input vacio");
+            document.querySelector('#error').classList.add('error');
+            document.querySelector("#error").innerHTML = " Por favor ingrese el numero de preguntas.";
+        }
+      
+    
 }
