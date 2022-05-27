@@ -29,3 +29,13 @@ let basepregunta =[
 for(let i=0; i<4; i++){
    basepregunta.sort(()=> Math.random()-0.5);
 }
+    pepito = [];
+    preguntas2 = [...basepregunta];
+
+    for(let i=0; i<1; i++){
+        pepito.push(preguntas2[i]);
+        
+    }
+    console.log(pepito);
+
+

@@ -1,4 +1,3 @@
-
 //variables
 const ayuda= document.querySelector("#ayuda");
 const QuieresJugar = document.getElementById("jugar");
@@ -13,7 +12,7 @@ npreguntas = document.getElementById('numeropreguntas').value;
 
 
 function cargarPregunta(num){
-    base= basepregunta[num];
+    base= pepito[num];
     //añade a la variable opciones las incorrectas
     opciones = [...base.incorrecta];
     //añade al ultimo la opcion correcta
@@ -92,14 +91,14 @@ async function SeleccionarOpcion(num){
     /*INDICE DE PREGUNTA IRÁ AUMENTANDO */
     indice_preguntas++;
     /*SI EL INDICE ES MAYOR O IGUAL A LA CANTIDAD DE PREGUNTAS */
-    if(indice_preguntas>= basepregunta.length){
+    if(indice_preguntas>= pepito.length){
         
         Swal.fire({
             background: '#393231',
             text: "Respuesta Correcta.",
             color: "#fff",
             title: 'El juego ha terminado',
-            text: `Puntaje Obtenido "${puntaje}/${basepregunta.length}".`,
+            text: `Puntaje Obtenido "${puntaje}/${pepito.length}".`,
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
@@ -139,8 +138,20 @@ function pista(){
 }
 //que pregunta va?
 function numeropregunta(){
-    document.getElementById('numpregunta').innerHTML = 'Pregunta ' + preguntaActual+ ' de '+ basepregunta.length;
+    document.getElementById('numpregunta').innerHTML = 'Pregunta ' + preguntaActual+ ' de '+ pepito.length;
 }
+function cargar(numero){
+    pepito = [];
+    preguntas2 = [...basepregunta];
+
+    for(let i=0; i<numero; i++){
+        pepito.push(preguntas2[i]);
+        
+    }
+    console.log(pepito);
+}
+
+
 
 //comenzar juego
 function jugar(QuieresJugar){
@@ -149,7 +160,7 @@ function jugar(QuieresJugar){
         //captura la cantidad de preguntas del input
         npreguntas = document.getElementById('numeropreguntas').value;
         cargarPregunta(indice_preguntas);
-
+        cargar(npreguntas);
         //oculta el div
         document.getElementById('jugar').style.display = 'none';
         document.getElementById('tablero').style.display = 'block';
